@@ -1,0 +1,54 @@
+---
+title: "Better plots"
+output: html_notebook
+---
+
+```{r}
+library(vroom)
+library(ggplot2)
+
+cbPalette <- c("#CC79A7", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00")
+
+```
+
+```{r}
+kura_ <- vroom("~/Documents/BBC_21-2939_prepro_data/derivatives/output/dfs/kuramoto_HTH.csv")
+sync_ <- vroom("~/Documents/BBC_21-2939_prepro_data/derivatives/output/dfs/sync_HTH.csv")
+
+null_kura_ <- vroom("~/Documents/BBC_21-2939_prepro_data/derivatives/output/dfs/null_kuramoto_HTH.csv")
+null_sync_ <- vroom("~/Documents/BBC_21-2939_prepro_data/derivatives/output/dfs/null_sync_HTH.csv")
+
+```
+
+```{r}
+ggplot(kura_, aes(time, `IMF3: 0.063–0.098 Hz`, color = as.factor(sub))) + geom_point()+ 
+  labs(title="Kuramoto order parameter (Rt) over time",
+       x="time", y = "Rt")+ scale_fill_manual(cbPalette) + theme_classic()
+
+
+ggplot(null_kura_, aes(time, `IMF3: 0.063–0.098 Hz`, color = as.factor(sub))) + geom_point()+ 
+  labs(title="Kuramoto order parameter (Rt) over time",
+       x="time", y = "Rt")+ scale_fill_manual(cbPalette) + theme_classic()
+
+```
+```{r}
+ydensity <- ggplot(kura_HTH, aes(`IMF3: 0.063–0.098 Hz`, fill = as.factor(sub))) + 
+  geom_density(alpha=.5) +  theme_classic() + scale_fill_manual(values = c("#CC79A7", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00"))
+ydensity
+```
+
+```{r}
+ggplot(sync_HTH, aes(time, `IMF3: 0.063–0.098 Hz`, color = as.factor(sub))) + 
+  labs(title="Phase syncronicity between the hypothalamus and pancreatic insulin",
+       x="time", y = "Resultant vector length")+ 
+  geom_line() + scale_fill_manual(cbPalette) +
+  theme_classic()
+
+
+```
+```{r}
+ydensity <- ggplot(sync_HTH, aes(`IMF3: 0.063–0.098 Hz`, fill = as.factor(sub))) + 
+  geom_density(alpha=.5) +  theme_classic() + scale_fill_manual(values = c("#CC79A7", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00"))
+ydensity
+```
+
