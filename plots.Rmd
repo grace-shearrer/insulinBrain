@@ -27,7 +27,7 @@ ggplot(kura_, aes(time, `IMF3: 0.063–0.098 Hz`, color = as.factor(sub))) + geo
 
 
 ggplot(null_kura_, aes(time, `IMF3: 0.063–0.098 Hz`, color = as.factor(sub))) + geom_point()+ 
-  labs(title="Kuramoto order parameter (Rt) over time",
+  labs(title="Null distribution Kuramoto order parameter (Rt) over time",
        x="time", y = "Rt")+ scale_fill_manual(cbPalette) + theme_classic()
 
 ```
