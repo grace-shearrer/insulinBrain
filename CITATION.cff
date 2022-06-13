@@ -3,20 +3,20 @@
 
 cff-version: 1.2.0
 title: Insulin Brain
-message: Please cite this software using these metadata.
+message: Please cite this dataset using these metadata.
 type: software
 authors:
-  - name-particle: Grace
-    family-names: Shearrer
+  - given-names: Grace Shearrer
+    name-particle: Grace
+    family-names: Shearrrer
     email: grace.shearrer@gmail.com
-    affiliation: University of Wyoming
+    affiliation: 'University of Wyoming '
     orcid: 'https://orcid.org/0000-0002-0450-4404'
-  - name-particle: Allison
+  - given-names: Allison Shapiro
+    name-particle: Allison
     family-names: Shapiro
     email: allison.shapiro@cuanschutz.edu
-    affiliation: 'University of Colorado '
+    affiliation: University of Colorado
 identifiers:
   - type: doi
     value: 10.5281/zenodo.6544495
-license: CC-BY-4.0
-version: v0.1
